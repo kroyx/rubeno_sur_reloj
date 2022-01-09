@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+<% obtenu_argumentojn.each do |argumento| -%>
+  <%= argumento[:name] %>: <%= obtenu_ekzemplan_valoron argumento[:type] %>
+<% end -%>
+
+two:
+<% obtenu_argumentojn.each do |argumento| -%>
+  <%= argumento[:name] %>: <%= obtenu_ekzemplan_valoron argumento[:type] %>
+<% end -%>

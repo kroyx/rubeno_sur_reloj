@@ -1,0 +1,53 @@
+require "application_system_test_case"
+
+class <%= class_name.pluralize %>Test < ApplicationSystemTestCase
+  setup do
+    @<%= singular_table_name %> = <%= plural_table_name %>(:one)
+  end
+
+  test "visiting the index" do
+    visit <%= plural_table_name %>_url
+    assert_selector "h1", text: "<%= class_name.pluralize %>"
+  end
+
+  test "should create <%= singular_table_name %>" do
+    visit <%= plural_table_name %>_url
+    click_on "Nova <%= singular_table_name %>"
+
+<% obtenu_argumentojn.each do |argumento| -%>
+  <% if argumento[:type] == "boolean" -%>
+    check "<%= argumento[:name].camelcase %>" if @<%= singular_table_name %>.<%= argumento[:name] %>
+  <% else -%>
+    fill_in "<%= argumento[:name].camelcase %>", with: @<%= singular_table_name %>.<%= argumento[:name] %>
+  <% end -%>
+<% end -%>
+    click_on "Kreu <%= class_name %>n"
+
+    assert_text "<%= class_name %> estis sukcese kreata"
+    click_on "Back"
+  end
+
+  test "should update <%= class_name %>" do
+    visit <%= singular_table_name %>_url(@<%= singular_table_name %>)
+    click_on "Redaktu ĉi <%= singular_table_name %>n", match: :first
+
+<% obtenu_argumentojn.each do |argumento| -%>
+  <% if argumento[:type] == "boolean" -%>
+    check "<%= argumento[:name].camelcase %>" if @<%= singular_table_name %>.<%= argumento[:name] %>
+  <% else -%>
+    fill_in "<%= argumento[:name].camelcase %>", with: @<%= singular_table_name %>.<%= argumento[:name] %>
+  <% end -%>
+<% end -%>
+    click_on "Redaktu <%= class_name %>n"
+
+    assert_text "<%= class_name %> estis sukcese redaktata"
+    click_on "Back"
+  end
+
+  test "should destroy <%= class_name %>" do
+    visit <%= singular_table_name %>_url(@<%= singular_table_name %>)
+    click_on "Forigu ĉi <%= singular_table_name %>n", match: :first
+
+    assert_text "<%= class_name %> estis sukcese forigata"
+  end
+end

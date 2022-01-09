@@ -1,0 +1,12 @@
+<article id="<%%= dom_id <%= singular_name %> %>">
+  <% if argumentoj.any? -%>
+<%  obtenu_argumentojn.each do |argumento| -%>
+
+  <p>
+    <strong><%= argumento[:name].camelcase %>:</strong>
+    <%%= <%= "#{singular_table_name}.#{argumento[:name]}" %> %>
+  </p>
+<% end -%>
+  <% end -%>
+
+</article>

@@ -1,0 +1,14 @@
+class Kreu<%= class_name %>n < ActiveRecord::Migration[7.0]
+  def change
+    create_table :<%= table_name %> do |t|
+<% if argumentoj.any? -%>
+<% obtenu_argumentojn.each do |argumento| -%>
+      <%= "t.#{argumento[:type]} :#{argumento[:name].underscore}" %>
+<% end -%>
+<% end -%>
+
+      t.datetime :kreita_je
+      t.datetime :redaktita_je
+    end
+  end
+end

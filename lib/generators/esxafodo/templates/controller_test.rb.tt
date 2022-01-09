@@ -1,0 +1,62 @@
+require "test_helper"
+
+class <%= class_name.pluralize %>ControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @<%= singular_table_name %> = <%= plural_table_name %>(:one)
+  end
+
+  test "should get index" do
+    get <%= plural_table_name %>_url
+    assert_response :success
+  end
+
+  test "should get new" do
+    get new_<%= singular_table_name %>_url
+    assert_response :success
+  end
+
+  test "should create <%= singular_table_name %>" do
+    assert_difference("<%= class_name %>.count") do
+      post <%= plural_table_name %>_url,
+        params: {
+          <%= singular_table_name %>: {
+<% obtenu_argumentojn.each do |argumento| -%>
+            <%= argumento[:name] %>: @<%= singular_table_name %>.<%= argumento[:name] %>,
+<% end -%>
+          }
+        }
+    end
+
+    assert_redirected_to <%= singular_table_name %>_url(<%= class_name %>.last)
+  end
+
+  test "should show <%= singular_table_name %>" do
+    get <%= singular_table_name %>_url(@<%= singular_table_name %>)
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get edit_<%= singular_table_name %>_url(@<%= singular_table_name %>)
+    assert_response :success
+  end
+
+  test "should update <%= singular_table_name %>" do
+    patch <%= singular_table_name %>_url(@<%= singular_table_name %>),
+      params: {
+        <%= singular_table_name %>: {
+<% obtenu_argumentojn.each do |argumento| -%>
+          <%= argumento[:name] %>: @<%= singular_table_name %>.<%= argumento[:name] %>,
+<% end -%>
+        }
+      }
+    assert_redirected_to <%= singular_table_name %>_url(@<%= singular_table_name %>)
+  end
+
+  test "should destroy <%= singular_table_name %>" do
+    assert_difference("<%= class_name %>.count", -1) do
+      delete <%= singular_table_name %>_url(@<%= singular_table_name %>)
+    end
+
+    assert_redirected_to <%= plural_table_name %>_url
+  end
+end

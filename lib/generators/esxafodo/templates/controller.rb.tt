@@ -1,0 +1,70 @@
+class <%= class_name.pluralize %>Controller < ApplicationController
+  before_action :set_<%= singular_table_name %>, only: %i[ show edit update destroy ]
+
+  # GET <%= route_url %> or <%= route_url %>.json
+  def index
+    @<%= var_name.pluralize %> = <%= class_name %>.all
+  end
+
+  # GET <%= route_url %>/1 or <%= route_url %>/1.json
+  def show
+  end
+
+  # GET <%= route_url %>/new
+  def new
+    @<%= var_name %> = <%= class_name %>.new
+  end
+
+  # GET <%= route_url %>/1/edit
+  def edit
+  end
+
+  # POST <%= route_url %> or <%= route_url %>.json
+  def create
+    @<%= var_name %> = <%= class_name %>.new(<%= name.singularize.downcase %>_params)
+
+    respond_to do |format|
+      if @<%= var_name %>.save
+        format.html { redirect_to <%= name.singularize.downcase %>_url(@<%= var_name %>), notice: "<%= class_name %> estis sukcese kreata." }
+        format.json { render :show, status: :created, location: @<%= var_name %> }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @<%= var_name %>.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT <%= route_url %>/1 or <%= route_url %>/1.json
+  def update
+    respond_to do |format|
+      if @<%= var_name %>.update(<%= name.singularize.downcase %>_params)
+        format.html { redirect_to <%= name.singularize.downcase %>_url(@<%= var_name %>), notice: "<%= class_name %> estis sukcese ĝisdatigata." }
+        format.json { render :show, status: :ok, location: @<%= var_name %> }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @<%= var_name %>.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE <%= route_url %>/1 or <%= route_url %>/1.json
+  def destroy
+    @<%= var_name %>.destroy
+
+    respond_to do |format|
+      format.html { redirect_to <%= name.singularize.downcase %>j_url, notice: "<%= class_name %> estis sukcese forigata." }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_<%= name.singularize.downcase %>
+      @<%= var_name %> = <%= class_name %>.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def <%= name.singularize.downcase %>_params
+      params.require(:<%= name.singularize.downcase %>).permit(<%= permesataj_argumentoj.join ", " %>)
+    end
+end

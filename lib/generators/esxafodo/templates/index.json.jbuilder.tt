@@ -1,0 +1,2 @@
+json.array! @kakarotoj, partial: "kakarotoj/kakaroto", as: :kakaroto
+
