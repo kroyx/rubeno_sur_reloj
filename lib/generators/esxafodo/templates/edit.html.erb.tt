@@ -1,4 +1,4 @@
-<h1>Editing <%= human_name.downcase %></h1>
+<h1>Redaktanta <%= human_name.downcase %>n</h1>
 
 <%%= render "form", <%= singular_table_name %>: @<%= singular_table_name %> %>
 
@@ -6,5 +6,5 @@
 
 <div>
   <%%= link_to "Montru ĉi <%= human_name.downcase %>n", <%= model_resource_name(prefix: "@") %> %> |
-  <%%= link_to "Iru ree al <%= human_name.pluralize.downcase %>", <%= index_helper(type: :path) %> %>
+  <%%= link_to "Iru reen al <%= human_name.pluralize.downcase %>", <%= index_helper(type: :path) %> %>
 </div>

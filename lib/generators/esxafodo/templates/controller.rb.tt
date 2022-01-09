@@ -1,12 +1,12 @@
 class <%= class_name.pluralize %>Controller < ApplicationController
   before_action :set_<%= singular_table_name %>, only: %i[ show edit update destroy ]
 
-  # GET <%= route_url %> or <%= route_url %>.json
+  # GET <%= route_url %> aŭ <%= route_url %>.json
   def index
     @<%= var_name.pluralize %> = <%= class_name %>.all
   end
 
-  # GET <%= route_url %>/1 or <%= route_url %>/1.json
+  # GET <%= route_url %>/1 aŭ <%= route_url %>/1.json
   def show
   end
 
@@ -19,7 +19,7 @@ class <%= class_name.pluralize %>Controller < ApplicationController
   def edit
   end
 
-  # POST <%= route_url %> or <%= route_url %>.json
+  # POST <%= route_url %> aŭ <%= route_url %>.json
   def create
     @<%= var_name %> = <%= class_name %>.new(<%= name.singularize.downcase %>_params)
 
@@ -34,7 +34,7 @@ class <%= class_name.pluralize %>Controller < ApplicationController
     end
   end
 
-  # PATCH/PUT <%= route_url %>/1 or <%= route_url %>/1.json
+  # PATCH/PUT <%= route_url %>/1 aŭ <%= route_url %>/1.json
   def update
     respond_to do |format|
       if @<%= var_name %>.update(<%= name.singularize.downcase %>_params)
@@ -47,7 +47,7 @@ class <%= class_name.pluralize %>Controller < ApplicationController
     end
   end
 
-  # DELETE <%= route_url %>/1 or <%= route_url %>/1.json
+  # DELETE <%= route_url %>/1 aŭ <%= route_url %>/1.json
   def destroy
     @<%= var_name %>.destroy
 
@@ -58,12 +58,12 @@ class <%= class_name.pluralize %>Controller < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Uzu revokfukciojn por kundividi agordojn aŭ limojn inter agoj
     def set_<%= name.singularize.downcase %>
       @<%= var_name %> = <%= class_name %>.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # Nur permesu liston de fidindaj parametroj
     def <%= name.singularize.downcase %>_params
       params.require(:<%= name.singularize.downcase %>).permit(<%= permesataj_argumentoj.join ", " %>)
     end

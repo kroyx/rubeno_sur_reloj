@@ -5,5 +5,5 @@
 <br>
 
 <div>
-  <%%= link_to "Iru ree al <%= human_name.pluralize.downcase %>", <%= index_helper(type: :path) %> %>
+  <%%= link_to "Iru reen al <%= human_name.pluralize.downcase %>", <%= index_helper(type: :path) %> %>
 </div>
