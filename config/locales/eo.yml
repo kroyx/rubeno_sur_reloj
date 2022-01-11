@@ -134,9 +134,9 @@ eo:
     select:
       prompt: Bonvolu elekti
     submit:
-      create: Krei %{model}
-      submit: Registri tiun %{model}
-      update: Modifi tiun %{model}
+      create: Kreu %{model}
+      submit: Registru tiun %{model}
+      update: Modifu tiun %{model}
   number:
     currency:
       format:

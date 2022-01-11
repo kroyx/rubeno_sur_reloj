@@ -5,6 +5,6 @@
 <br>
 
 <div>
-  <%%= link_to "Montru ĉi <%= human_name.downcase %>n", <%= model_resource_name(prefix: "@") %> %> |
+  <%%= link_to "Montru tiun ĉi <%= human_name.downcase %>n", <%= model_resource_name(prefix: "@") %> %> |
   <%%= link_to "Iru reen al <%= human_name.pluralize.downcase %>", <%= index_helper(type: :path) %> %>
 </div>
