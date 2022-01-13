@@ -1,24 +1,31 @@
-# README
+# Rubeno Sur Reloj
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rubeno sur reloj estas ŝablono de Ruby On Rails, por krei projektojn en
+esperanto.
 
-Things you may want to cover:
+## Antaŭnecesaĵo
 
-* Ruby version
+- Ruby 3.0.0
+- Rails 7.0.0
 
-* System dependencies
+## Priskribo
 
-* Configuration
+La projekto uzas kelkajn agordojn por krei bazajn dosierojn/agordojn:
 
-* Database creation
+- Tradukitaj dosieroj .erb aŭtomate generota de la komando `rails g scaffold ...`
+- Aldonita dosieron `config/locales/eo.yml` kaj i18n agordita.
+- Kreita propra generilo `esxafodo`, kiu estas simila al komando `scaffold`,
+  sed kun granda parto de la dosieroj, komentoj kaj routes estas tradukita al
+  esperanto. `rails g esxafodo ...`
 
-* Database initialization
+## Uzado
 
-* How to run the test suite
+Klonu la deponejon:
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+git clone git@github.com:kroyxlab/rubeno_sur_reloj.git projektnomo
+cd projektnomo
+```
 
-* Deployment instructions
+Ŝanĝu la agorodojn en la dosiero `config/database.yml` se estas necesa.
 
-* ...
