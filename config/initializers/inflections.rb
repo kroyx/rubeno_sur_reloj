@@ -16,6 +16,7 @@
 # end
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
-  inflect.plural /[ao]$/i, "j"
+  inflect.plural /o$/i, "oj"
+  inflect.plural /a$/i, "aj"
   inflect.singular /j$/i, ""
 end
